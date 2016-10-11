@@ -1,18 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""This module provides a function that converts Fahrenheit to Celsius
-    and displays the result as a decimal.
-    """
+"""This module provides various temperature conversions"""
 
-import decimal
 
-ABSOLUTE_DIFFERENCE = decimal.Decimal('273.15')
+ABSOLUTE_DIFFERENCE = 273.15
 
 
 def fahrenheit_to_celsius(degrees):
     """Defines a function that converts Fahrenheit to Celsius.
     Args:
-        degrees (int): Degrees in Fahrenheit.
+        degrees (float): Degrees in Fahrenheit.
     Returns:
         decimal: Degrees converted to Celsius.
     Examples:
@@ -22,12 +19,12 @@ def fahrenheit_to_celsius(degrees):
         Decimal('0')
     """
 
-    return ((decimal.Decimal(degrees) - 32) * 5) / 9
+    return (degrees - 32) * 5 / 9
 
 def celsius_to_fahrenheit(degrees):
     """Defines a function that converts Fahrenheit to Celsius.
     Args:
-        degrees (int): Degrees in Fahrenheit.
+        degrees (float): Degrees in Fahrenheit.
     Returns:
         decimal: Degrees converted to Celsius.
     Examples:
@@ -36,12 +33,12 @@ def celsius_to_fahrenheit(degrees):
         >>> celsius_to_fahrenheit(0)
         Decimal('32')
     """
-    return ((decimal.Decimal(degrees) * 1.8) + 32)
+    return (degrees * 1.8) + 32
 
 def celsius_to_kelvin(degrees):
     """Defines a function that converts Celsius to Kelvin
     Args:
-        degrees (int): Degrees in Celsius.
+        degrees (float): Degrees in Celsius.
     Returns:
         decimal: Degrees converted to Kelvin.
     Examples:
@@ -51,12 +48,12 @@ def celsius_to_kelvin(degrees):
         Decimal('273.15')
     """
 
-    return decimal.Decimal(degrees) + ABSOLUTE_DIFFERENCE
+    return degrees + ABSOLUTE_DIFFERENCE
 
 def kelvin_to_celsius(degrees):
     """Defines a function that converts Celsius to Kelvin
     Args:
-        degrees (int): Degrees in Celsius.
+        degrees (float): Degrees in Celsius.
     Returns:
         decimal: Degrees converted to Kelvin.
     Examples:
@@ -66,13 +63,13 @@ def kelvin_to_celsius(degrees):
         Decimal('123.15')
     """
 
-    return decimal.Decimal(degrees) - ABSOLUTE_DIFFERENCE
+    return degrees - ABSOLUTE_DIFFERENCE
 
 
 def fahrenheit_to_kelvin(degrees):
     """Defines a function that converts Fahrenheit to Kelvin
     Args:
-        degrees (int): Degrees in Fahrenheit
+        degrees (float): Degrees in Fahrenheit
     Returns:
         decimal: Degrees convertet to Kelvin
     Examples:
@@ -88,7 +85,7 @@ def fahrenheit_to_kelvin(degrees):
 def kelvin_to_fahrenheit(degrees):
     """Defines a function that converts Fahrenheit to Kelvin
     Args:
-        degrees (int): Degrees in Fahrenheit
+        degrees (float): Degrees in Fahrenheit
     Returns:
         decimal: Degrees convertet to Kelvin
     Examples:
@@ -98,4 +95,22 @@ def kelvin_to_fahrenheit(degrees):
         Decimal('273.16')
     """
 
-    return kelvin_to_celsius(celsius_to_fahrenheit(degrees))
+    return celsius_to_fahrenheit(kelvin_to_celsius(degrees))
+
+def meters_to_yards(dist):
+    return dist * 1.09361
+
+def yards_to_meters(dist):
+    return dist * 0.9144
+
+def meters_to_miles(dist):
+    return dist * 0.000621371
+
+def miles_to_meters(dist):
+    return dist * 1609.34
+
+def yards_to_miles(dist):
+    return dist * 0.000568182
+
+def miles_to_yards(dist):
+    return dist * 1760
